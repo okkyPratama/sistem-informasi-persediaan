@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../CSS/home.css">
+    <link rel="stylesheet" href="../CSS/management-data.css">
+    <title>Sistem Informasi Persediaan</title>
+</head>
+
+<body>
+    <!-- topnav -->
+    <nav class="navbar">
+        <h4>Sistem Informasi Persediaan</h4>
+
+        <div class="action">
+            <div class="profile" onclick="menuToggle();">
+
+                <div class="dropdown-profile">
+                    <div>
+                        <span class="fas fa-user"></span>
+                    </div>
+                    <div>
+                        <p class="profile-name">Administrator </p>
+
+                    </div>
+                    <div class="dropdown-icon">
+                        <i class="fas fa-caret-down"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li>
+                        <img src="../assets/icons/user.png" /> <a href="#">My Profile</a>
+                    </li>
+                    <li>
+                        <img src="../assets/icons/envelope.png" /><a href="#">Inbox</a>
+                    </li>
+                                       <li onclick="ManagementDatalogout()">
+                        <img src="../assets/icons/log-out.png" /><a href="#">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        </div>
+
+    </nav>
+    <!-- Sidebar -->
+    <input type="checkbox" id="toggle">
+    <label class="side-toggle" for="toggle">
+        <span class="fas fa-bars"></span>
+    </label>
+
+    <div class="sidebar">
+        <div class="sidebar-menu">
+            <a href="../home.html">
+                <span class="fas fa-tachometer-alt"></span>
+                <p>Dashboard </p>
+            </a>
+
+
+        </div>
+
+        <div class="sidebar-menu" id="active">
+            <a href="../Management Data/user-view.html">
+                <span class="fas fa-users "> </span>
+                <p>Manajemen User</p>
+            </a>
+        </div>
+        
+    
+        <div class="sidebar-menu"   >
+            <a href="../Management Data/pemesanan-view.html">
+                <span class="fas fa-cart-shopping"> </span>
+                <p>Data Pemesanan</p>
+
+            </a>
+        </div>
+
+        <div class="sidebar-menu" >
+            <a href="../Management Data/persediaan-view.html">
+                <span class="fas fa-warehouse"></span>
+                <p>Data Persediaan</p>
+            </a>
+        </div>
+
+        <div class="sidebar-menu">
+            <a href="../Management Data/supplier-view.html">
+                <span class="fas fa-truck-droplet"> </span>
+                <p>Data Supplier</p>
+            </a>
+        </div>
+        <div class="sidebar-menu">
+            <a href="#">
+                <span class="fas fa-id-card"> </span>
+                <p>Kontak</p>
+            </a>
+        </div>
+        <div class="sidebar-menu">
+            <a href="#">
+                <span class="fas fa-cog"> </span>
+                <p>Pengaturan</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- main dashboard -->
+    <main>
+        <div class="page-title">
+            <h1 class="mainheading">Manajemen User</h1>
+
+        </div>
+        <div class="breadcrumb-container">
+            <ul class="breadcrumb">
+                <li> <a href="../home.html"><i class="fas fa-gauge"></i></a></li>
+                <li> <a href="../Management Data/user-view.html"><i class="fas fa-shopping-cart"></i> User</a> </li>
+                <li> <i class="fa-solid fa-pen-to-square"></i> Update User </li>
+            </ul>
+
+        </div>
+
+        <div class="container">
+            <form onsubmit="onFormSubmit()">
+
+              
+                <div class="row">
+                    <div class="col-25">
+                      <label  for="nama" class="form-label">Nama Lengkap</label>
+                    </div>
+                    <div class="col-75">
+                      <input type="text" id="nama" name="nama" required oninput="notNullValidation(this)" oninvalid="notNullValidation(this)" >
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    
+                    <div class="col-25">
+                      <label for="email" class="form-label">Email</label>
+                    </div>
+                    <div class="col-75">
+                      <input type="email" id="email" name="email" required oninvalid="emailValidation(this)" oninput="emailValidation(this)">
+  
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-25">
+                      <label  for="nomorhp" class="form-label">Nomor HP</label>
+                    </div>
+                    <div class="col-75">
+                      <input type="text" id="nomorhp" name="nomorhp" required oninvalid="phoneNumbervalidation(this)" oninput="phoneNumbervalidation(this)">
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="alamat">Alamat</label>
+                    </div>
+                    <div class="col-75">
+                      <textarea id="alamat" name="alamat" style="height:200px" required oninvalid="addresValidation(this)" oninput="addresValidation(this)"></textarea>
+                    </div>
+                  </div>
+
+                <div class="row">
+
+                  <div class="col-25">
+                    <label for="username" class="form-label">Username</label>
+                  </div>
+                  <div class="col-75">
+                    <input type="text" id="username" name="username" required oninvalid="notNullValidation(this)" oninput="notNullValidation(this)">
+                  </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-25">
+                      <label  for="pwd" class="form-label">Password</label>
+                    </div>
+                    <div class="col-75">
+                      <input type="password" id="pwd" name="pwd" required oninvalid="notNullValidation(this)" oninput="notNullValidation(this)">
+                    </div>
+                  </div>
+
+                <div class="row">
+                    <div class="col-25">
+                      <label  for="re-pwd" class="form-label">Re-Password</label>
+                    </div>
+                    <div class="col-75">
+                      <input type="password" id="re-pwd" name="re-pwd" required oninvalid="notNullValidation(this)" oninput="notNullValidation(this)">
+                    </div>
+                  </div>
+
+
+
+                <div class="row">
+                  <div class="col-25">
+                    <label for="foto" class="form-label">Foto</label>
+                  </div>
+                  <div class="col-75">
+                    <input type="file" name="foto" id="foto">
+                  </div>
+                </div>
+                <div class="row">
+                  <input type="submit" value="Submit">
+                </div>
+              </form>
+        </div>
+
+
+    </main>
+
+    <script src="../script.js"></script>
+    <script src="../management-data-script.js"></script>
+</body>
+
+</html>

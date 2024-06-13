@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../CSS/home.css">
+    <link rel="stylesheet" href="../CSS/management-data.css">
+    <title>Sistem Informasi Persediaan</title>
+</head>
+
+<body>
+    <!-- topnav -->
+    <nav class="navbar">
+        <h4>Sistem Informasi Persediaan</h4>
+
+        <div class="action">
+            <div class="profile" onclick="menuToggle();">
+
+                <div class="dropdown-profile">
+                    <div>
+                        <span class="fas fa-user"></span>
+                    </div>
+                    <div>
+                        <p class="profile-name">Administrator </p>
+
+                    </div>
+                    <div class="dropdown-icon">
+                        <i class="fas fa-caret-down"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li>
+                        <img src="../assets/icons/user.png" /> <a href="#">My Profile</a>
+                    </li>
+                    <li>
+                        <img src="../assets/icons/envelope.png" /><a href="#">Inbox</a>
+                    </li>
+                    <li onclick="ManagementDatalogout()">
+                        <img src="../assets/icons/log-out.png" /><a href="#">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        </div>
+
+    </nav>
+    <!-- Sidebar -->
+    <input type="checkbox" id="toggle">
+    <label class="side-toggle" for="toggle">
+        <span class="fas fa-bars"></span>
+    </label>
+
+    <div class="sidebar">
+        <div class="sidebar-menu">
+            <a href="../home.html">
+                <span class="fas fa-tachometer-alt"></span>
+                <p>Dashboard </p>
+            </a>
+        </div>
+        <div class="sidebar-menu" id="active">
+            <a href="../Management Data/user-view.html">
+                <span class="fas fa-users "> </span>
+                <p>Manajemen User</p>
+            </a>
+        </div>
+        <div class="sidebar-menu">
+            <a href="../Management Data/supplier-view.html">
+                <span class="fas fa-truck-droplet"> </span>
+                <p>Data Supplier</p>
+            </a>
+        </div>
+
+        <div class="sidebar-menu">
+            <a href="../Management Data/persediaan-view.html">
+                <span class="fas fa-warehouse"></span>
+                <p>Data Persediaan</p>
+            </a>
+        </div>
+        <div class="sidebar-menu">
+            <a href="../Management Data/pemesanan-view.html">
+                <span class="fas fa-cart-shopping"> </span>
+                <p>Data Pemesanan</p>
+
+            </a>
+        </div>
+
+        <div class="sidebar-menu">
+            <a href="#">
+                <span class="fas fa-id-card"> </span>
+                <p>Kontak</p>
+            </a>
+        </div>
+        <div class="sidebar-menu">
+            <a href="#">
+                <span class="fas fa-cog"> </span>
+                <p>Pengaturan</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- main dashboard -->
+    <main>
+        <div class="page-title">
+            <h1 class="mainheading">Manajemen User</h1>
+
+        </div>
+        <div class="breadcrumb-container">
+            <ul class="breadcrumb">
+                <li> <a href="../home.html"><i class="fas fa-gauge"></i></a></li>
+                <li> <i class="fas fa-users"></i> User </li>
+            </ul>
+
+        </div>
+
+        <div class="container">
+            <div class="wrapper">
+                <input type="search" oninput="filter_table(this, 'table_filter')" class="form_control"
+                    placeholder="Search Table...">
+                <a href="user-create.html">
+                    <button><i class="fa-solid fa-plus"></i> Tambah Data Baru</button>
+                </a>
+
+            </div>
+            <table class="_table table_sort">
+                <thead>
+                    <tr>
+                        <th>No </th>
+                        <th>Foto</th>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Username</th>
+                        <th width="50px">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="table_filter">
+
+                    <tr>
+                        <td>02</td>
+                        <td><img src="../assets/foto-profile/budi-utomo.jpg" alt="" srcset=""></td>
+                        <td>Budi Utomo</td>
+                        <td>boedoet@gmail.com</td>
+                        <td>boedoet07</td>
+                        <td>
+                            <div class="action_btn">
+                                <a href="#" class="click_ripple_shine success" title="View">
+                                    <i class="icon fa fa-eye"></i>
+                                </a>
+                                <a href="./user-update.html" class="click_ripple_shine warning" title="Edit">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                                <a href="#" class="click_ripple_shine danger" title="Delete">
+                                    <i class="icon fa fa-close"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>01</td>
+                        <td><img src="../assets/foto-profile/levi-ackerman.jpg" alt="" srcset=""></td>
+                        <td>Levi Ackerman</td>
+                        <td>levi@gmail.com</td>
+                        <td>RivaiSencou</td>
+                        <td>
+                            <div class="action_btn">
+                                <a href="#" class="click_ripple_shine success" title="View">
+                                    <i class="icon fa fa-eye"></i>
+                                </a>
+                                <a href="./user-update.html" class="click_ripple_shine warning" title="Edit">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                                <a href="#" class="click_ripple_shine danger" title="Delete">
+                                    <i class="icon fa fa-close"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>03</td>
+                        <td><img src="../assets/foto-profile/imam-bonjol.jpg" alt="" srcset=""></td>
+                        <td>Iman Bonjol</td>
+                        <td>imam@gmail.com</td>
+                        <td>ImamBJ</td>
+                        <td>
+                            <div class="action_btn">
+                                <a href="#" class="click_ripple_shine success" title="View">
+                                    <i class="icon fa fa-eye"></i>
+                                </a>
+                                <a href="./user-update.html" class="click_ripple_shine warning" title="Edit">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                                <a href="#" class="click_ripple_shine danger" title="Delete">
+                                    <i class="icon fa fa-close"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>04</td>
+                        <td><img src="../assets/foto-profile/anya-forger.jpeg" alt=""></td>
+                        <td>Anya Forger</td>
+                        <td>anya@123@gmail.com</td>
+                        <td>anyaPeanut</td>
+                        <td>
+                            <div class="action_btn">
+                                <a href="#" class="click_ripple_shine success" title="View">
+                                    <i class="icon fa fa-eye"></i>
+                                </a>
+                                <a href="./user-update.html" class="click_ripple_shine warning" title="Edit">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                                <a href="#" class="click_ripple_shine danger" title="Delete">
+                                    <i class="icon fa fa-close"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>05</td>
+                        <td><img src="../assets/foto-profile/ben-franklin.jpg" alt="" srcset=""></td>
+                        <td>Benjamin Franklin</td>
+                        <td>benjamin@gmail.com</td>
+                        <td>bennyFrank</td>
+                        <td>
+                            <div class="action_btn">
+                                <a href="#" class="click_ripple_shine success" title="View">
+                                    <i class="icon fa fa-eye"></i>
+                                </a>
+                                <a href="./user-update.html" class="click_ripple_shine warning" title="Edit">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                                <a href="#" class="click_ripple_shine danger" title="Delete">
+                                    <i class="icon fa fa-close"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>06</td>
+                        <td><img src="../assets/foto-profile/saoirse-ronan.jpg" alt="" srcset=""></td>
+                        <td>Saoirse Ronan</td>
+                        <td>saoirse@gmail.com</td>
+                        <td>sariRonan</td>
+                        <td>
+                            <div class="action_btn">
+                                <a href="#" class="click_ripple_shine success" title="View">
+                                    <i class="icon fa fa-eye"></i>
+                                </a>
+                                <a href="./user-update.html" class="click_ripple_shine warning" title="Edit">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                                <a href="#" class="click_ripple_shine danger" title="Delete">
+                                    <i class="icon fa fa-close"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>07</td>
+                        <td><img src="../assets/foto-profile/aston-kutcher.jpg" alt="" srcset=""></td>
+                        <td>Ashton Kutcher</td>
+                        <td>aston_k@gmail.com</td>
+                        <td>askutch</td>
+                        <td>
+                            <div class="action_btn">
+                                <a href="#" class="click_ripple_shine success" title="View">
+                                    <i class="icon fa fa-eye"></i>
+                                </a>
+                                <a href="./user-update.html" class="click_ripple_shine warning" title="Edit">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                                <a href="#" class="click_ripple_shine danger" title="Delete">
+                                    <i class="icon fa fa-close"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>08</td>
+                        <td><img src="../assets/foto-profile/ahmad-dahlan.jpg" alt="" srcset=""></td>
+                        <td>Ahmad Dahlan</td>
+                        <td>ahmad_ad@gmail.com</td>
+                        <td>ahmadd</td>
+                        <td>
+                            <div class="action_btn">
+                                <a href="#" class="click_ripple_shine success" title="View">
+                                    <i class="icon fa fa-eye"></i>
+                                </a>
+                                <a href="./user-update.html" class="click_ripple_shine warning" title="Edit">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                                <a href="#" class="click_ripple_shine danger" title="Delete">
+                                    <i class="icon fa fa-close"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>09</td>
+                        <td><img src="../assets/foto-profile/kirito.jpg" alt="" srcset=""></td>
+                        <td>Kirigaya Kazuto</td>
+                        <td>kazuto@gmail.com</td>
+                        <td>Kirito</td>
+                        <td>
+                            <div class="action_btn">
+                                <a href="#" class="click_ripple_shine success" title="View">
+                                    <i class="icon fa fa-eye"></i>
+                                </a>
+                                <a href="./user-update.html" class="click_ripple_shine warning" title="Edit">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                                <a href="#" class="click_ripple_shine danger" title="Delete">
+                                    <i class="icon fa fa-close"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td><img src="../assets/foto-profile/tom-shelby.jpg" alt="" srcset=""></td>
+                        <td>Thomas Shelby</td>
+                        <td>sigma_male@gmail.com</td>
+                        <td>Tommy</td>
+                        <td>
+                            <div class="action_btn">
+                                <a href="#" class="click_ripple_shine success" title="View">
+                                    <i class="icon fa fa-eye"></i>
+                                </a>
+                                <a href="./user-update.html" class="click_ripple_shine warning" title="Edit">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                                <a href="#" class="click_ripple_shine danger" title="Delete">
+                                    <i class="icon fa fa-close"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+
+    </main>
+
+    <script src="../script.js"></script>
+    <script src="../management-data-script.js"></script>
+</body>
+
+</html>

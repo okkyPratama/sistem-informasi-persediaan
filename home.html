@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./CSS/home.css">
+    <title>Sistem Informasi Persediaan</title>
+</head>
+
+<body>
+    <!-- topnav -->
+    <nav class="navbar">
+        <h4>Sistem Informasi Persediaan</h4>
+
+        <div class="action">
+            <div class="profile" onclick="menuToggle();">
+
+                <div class="dropdown-profile">
+                    <div>
+                        <span class="fas fa-user"></span>
+                    </div>
+                    <div>
+                        <p class="profile-name">Administrator </p>
+
+                    </div>
+                    <div class="dropdown-icon">
+                        <i class="fas fa-caret-down"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li>
+                        <img src="./assets/icons/user.png" /> <a href="#">My Profile</a>
+                    </li>
+                    <li>
+                        <img src="./assets/icons/envelope.png" /><a href="#">Inbox</a>
+                    </li>
+                    <li onclick="logoutConfirmation()">
+                        <img src="../assets/icons/log-out.png" /><a href="#">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        </div>
+
+    </nav>
+    
+    <!-- Sidebar -->
+    <input type="checkbox" id="toggle">
+    <label class="side-toggle" for="toggle">
+        <span class="fas fa-bars"></span>
+    </label>
+
+    <div class="sidebar">
+        <div class="sidebar-menu" id="active">
+            <a href="./home.html"> 
+            <span class="fas fa-tachometer-alt"></span>
+            <p>Dashboard </p>
+            </a>
+
+
+        </div>
+        <div class="sidebar-menu">
+            <a href="./Management Data/pemesanan-view.html">
+                <span class="fas fa-cart-shopping"> </span>
+                <p>Data Pemesanan</p>
+
+            </a>
+        </div>
+        <div class="sidebar-menu">
+            <a href="./Management Data/persediaan-view.html">
+                <span class="fas fa-warehouse"></span>
+                <p>Data Persediaan</p>
+            </a>
+        </div>
+
+        <div class="sidebar-menu">
+            <a href="./Management Data/supplier-view.html">
+                <span class="fas fa-truck-droplet"> </span>
+                <p>Data Supplier</p>
+            </a>
+        </div>
+        <div class="sidebar-menu">
+            <a href="./Management Data/user-view.html">
+                <span class="fas fa-users "> </span>
+                <p>Manajemen User</p>
+            </a>
+        </div>
+        <div class="sidebar-menu">
+            <a href="#">
+                <span class="fas fa-id-card"> </span>
+                <p>Kontak</p>
+            </a>
+        </div>
+        <div class="sidebar-menu">
+            <a href="#">
+                <span class="fas fa-cog"> </span>
+                <p>Pengaturan</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- main dashboard -->
+    <main>
+        <div class="page-title">
+            <h1 class="mainheading">Dashboard</h1>
+            <h2 class="subheading"> Statistik Website</h2>
+
+        </div>
+        <hr>
+        <div class="breadcrumb-container">
+            <ul class="breadcrumb">
+                <li> <a href="#"><i class="fa-solid fa-gauge"></i> Dashboard </a></li>
+            </ul>
+
+        </div>
+
+        <div class="dashboard-container">
+            <div class="card total1">
+                <div class="info">
+                    <div class="info-detail">
+                        <h3>Total Pemesanan</h3>
+                        <p>Lorem Ipsum</p>
+                        <h2>35 <span>order</span></h2>
+                    </div>
+                    <div class="info-image">
+                        <i class="fas fa-cart-flatbed"></i>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card total2">
+                <div class="info">
+                    <div class="info-detail">
+                        <h3>Jumlah Ketersediaan </h3>
+                        <p>Lorem Ipsum</p>
+                        <h2>250 <span>Item</span></h2>
+                    </div>
+                    <div class="info-image">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                </div>
+
+            </div>
+            <div class="card total3">
+                <div class="info">
+                    <div class="info-detail">
+                        <h3>User</h3>
+                        <p>Lorem ipsum</p>
+                        <h2>16 <span>User</span></h2>
+                    </div>
+                    <div class="info-image">
+                        <i class="fas fa-user-alt"></i>
+                    </div>
+                </div>
+
+            </div>
+            <div class="card total4">
+                <div class="info">
+                    <div class="info-detail">
+                        <h3>Total Supplier</h3>
+                        <p>Lorem Ipsum</p>
+                        <h2>14 <span>Supplier</span></h2>
+                    </div>
+                    <div class="info-image">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 2 cards bottom -->
+            <div class="card detail">
+                <div class="detail-header">
+                    <h2><i class="fas fa-chart-column"></i> Info User</h2>
+
+                </div>
+
+                <div class="table-wrapper">
+                    <table class="table-left">
+                        <tr>
+                            <th>Nama Lengkap</th>
+                            <td>Administrator</td>
+                        </tr>
+                        <tr>
+                            <th>Username</th>
+                            <td>Admin</td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>admin@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <th>No HP</th>
+                            <td>0855577855</td>
+                        </tr>
+                        <tr>
+                            <th>Alamat </th>
+                            <td>Jakarta Barat</td>
+                        </tr>
+                    </table>
+                    <br>
+                    <table class="table-right">
+                        <tr>
+                            <th>Last Login</th>
+                            <td>08/07/2022</td>
+                        </tr>
+                        <tr>
+                            <th>IP Address</th>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <th>Server</th>
+                            <td>Localhost</td>
+                        </tr>
+                        <tr>
+                            <th>Browser</th>
+                            <td>Mozilla/5.0</td>
+                        </tr>
+                    </table>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

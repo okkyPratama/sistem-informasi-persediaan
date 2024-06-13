@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/register.css">
+    <title>Register | Sistem Informasi Persediaan</title>
+</head>
+
+<body class="register-page">
+    <div class="form-container">
+        <form action="index.html" id="register-form" method="get" class="register-form" onsubmit="registerNotification()">
+            <div>
+                <h1 class="form-title">Register Form</h1>
+            </div>
+            <label for="username" class="font">Nama</label>
+            <input type="text" name="username" id="username" required oninput="notNullValidation(this)" oninvalid="notNullValidation(this)">
+            <label for="birthday" class="font">Tanggal Lahir</label>
+            <input type="date" name="birthday" id="birthday" required oninput="notNullValidation(this)" oninvalid="notNullValidation(this)">            
+            <label for=" alamat" class="font">Alamat</label>
+            <textarea name="alamat" id="" cols="10" rows="5" required oninput="addresValidation(this)" oninvalid="addresValidation(this)"></textarea>
+            <label for="email" class="font" > Email</label>
+            <input type="email" name="email" id="email" required oninput="emailValidation(this)" oninvalid="emailValidation(this)">
+
+            <label for="password" class="font">Password</label>
+            <input type="password" name="password" id="password" required oninput="passwordValidation(this)" oninvalid="passwordValidation(this)">
+
+            <label for="telp" class="font">Nomor Telpon</label>
+            <input type="tel" name="telp" id="telp" required oninput="phoneNumbervalidation(this)" oninvalid="phoneNumbervalidation(this)">
+
+
+            <input type="submit" value="Register" id="btn-register">
+            <div class="login-redirect">Sudah memiliki akun? <a href="./index.html">Login disini</a></div>
+    </div>
+    <br>
+
+    </form>
+
+    </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../CSS/home.css">
+    <link rel="stylesheet" href="../CSS/management-data.css">
+    <title>Sistem Informasi Persediaan</title>
+</head>
+
+<body>
+    <!-- topnav -->
+    <nav class="navbar">
+        <h4>Sistem Informasi Persediaan</h4>
+
+        <div class="action">
+            <div class="profile" onclick="menuToggle();">
+
+                <div class="dropdown-profile">
+                    <div>
+                        <span class="fas fa-user"></span>
+                    </div>
+                    <div>
+                        <p class="profile-name">Administrator </p>
+
+                    </div>
+                    <div class="dropdown-icon">
+                        <i class="fas fa-caret-down"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li>
+                        <img src="../assets/icons/user.png" /> <a href="#">My Profile</a>
+                    </li>
+                    <li>
+                        <img src="../assets/icons/envelope.png" /><a href="#">Inbox</a>
+                    </li>
+                                       <li onclick="ManagementDatalogout()">
+                        <img src="../assets/icons/log-out.png" /><a href="#">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        </div>
+
+    </nav>
+    <!-- Sidebar -->
+    <input type="checkbox" id="toggle">
+    <label class="side-toggle" for="toggle">
+        <span class="fas fa-bars"></span>
+    </label>
+
+    <div class="sidebar">
+        <div class="sidebar-menu">
+            <a href="../home.html">
+                <span class="fas fa-tachometer-alt"></span>
+                <p>Dashboard </p>
+            </a>
+
+
+        </div>
+        
+        <div class="sidebar-menu" id="active">
+            <a href="../Management Data/supplier-view.html">
+                <span class="fas fa-truck-droplet"> </span>
+                <p>Data Supplier</p>
+            </a>
+        </div>
+    
+        <div class="sidebar-menu"  >
+            <a href="../Management Data/pemesanan-view.html">
+                <span class="fas fa-cart-shopping"> </span>
+                <p>Data Pemesanan</p>
+
+            </a>
+        </div>
+
+        <div class="sidebar-menu" >
+            <a href="../Management Data/persediaan-view.html">
+                <span class="fas fa-warehouse"></span>
+                <p>Data Persediaan</p>
+            </a>
+        </div>
+        <div class="sidebar-menu">
+            <a href="../Management Data/user-view.html">
+                <span class="fas fa-users "> </span>
+                <p>Manajemen User</p>
+            </a>
+        </div>
+        <div class="sidebar-menu">
+            <a href="#">
+                <span class="fas fa-id-card"> </span>
+                <p>Kontak</p>
+            </a>
+        </div>
+        <div class="sidebar-menu">
+            <a href="#">
+                <span class="fas fa-cog"> </span>
+                <p>Pengaturan</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- main dashboard -->
+    <main>
+        <div class="page-title">
+            <h1 class="mainheading">Supplier</h1>
+
+        </div>
+        <div class="breadcrumb-container">
+            <ul class="breadcrumb">
+                <li> <a href="../home.html"><i class="fas fa-gauge"></i></a></li>
+                <li> <a href="../Management Data/supplier-view.html"><i class="fas fa-truck"></i> Supplier</a> </li>
+                <li> <i class="fas fa-pen-to-square"></i> Update Supplier </li> 
+            </ul>
+
+        </div>
+
+        <div class="container">
+            <form onsubmit="onFormSubmit()">
+                <div class="row">
+                  <div class="col-25">
+                    <label for="itemName" class="form-label">Nama Item</label>
+                  </div>
+                  <div class="col-75">
+                        <input type="text" id="itemName" name="itemName" required oninput="validateItem(this)" oninvalid="validateItem(this)">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-25">
+                    <label  for="jumlah" class="form-label">Jumlah</label>
+                  </div>
+                  <div class="col-75">
+                        <input type="number" id="jumlah" name="jumlah" required oninput="validateJumlah(this)" oninvalid="validateJumlah(this)">
+                  </div>
+                </div>
+                <div class="row">
+                    
+                  <div class="col-25">
+                    <label for="dibuatoleh" class="form-label">Dibuat Oleh</label>
+                  </div>
+                  <div class="col-75">
+                        <input type="text" id="dibuatoleh" name="dibuatoleh" required oninput="validateDibuat(this)" oninvalid="validateDibuat(this)">
+
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-25">
+                    <label for="tanggaldibuat" class="form-label">Dibuat Tanggal</label>
+                  </div>
+                  <div class="col-75">
+                        <input type="date" name="tanggaldibuat" id="tanggaldibuat" required min="2022-01-01"  oninput="validateTanggal(this)" oninvalid="validateTanggal(this)">
+                  </div>
+                </div>
+                <div class="row">
+                  <input type="submit" value="Submit">
+                </div>
+              </form>
+        </div>
+
+
+    </main>
+
+    <script src="../script.js"></script>
+    <script src="../management-data-script.js"></script>
+</body>
+
+</html>

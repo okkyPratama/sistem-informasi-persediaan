@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/login.css">
+    <title>Login | Sistem Informasi Persediaan</title>
+</head>
+
+<body class="login-page">
+    <div class="form-container">
+        <form class="login_form" action="home.html" method="get" name="form" onsubmit="return loginNotification()">
+            <div>
+                <h1 class="form-title">Admin Login</h1>
+            </div>
+            <div class="font">Email</div>
+            <input  type="email" name="email" required oninvalid="emailValidation(this)" oninput="emailValidation(this)">
+            <div class="font font2">Password</div>
+            <input type="password" name="password" id="password" required  oninvalid="passwordValidation(this)" oninput="passwordValidation(this)"  > 
+            <button type="submit" class="login-btn">Login</button>
+            <div class="register-redirect">Belum memiliki akun? <a href="./register.html">Register disini</a></div>
+        </form>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
