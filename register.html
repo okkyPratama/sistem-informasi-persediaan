@@ -15,7 +15,9 @@
             <div>
                 <h1 class="form-title">Register Form</h1>
             </div>
-            <label for="username" class="font">Nama</label>
+            <label for="fullname" class="font">Nama Lengkap</label>
+            <input type="text" name="fullname" id="fullname" required oninput="notNullValidation(this)" oninvalid="notNullValidation(this)">
+            <label for="username" class="font">Username</label>
             <input type="text" name="username" id="username" required oninput="notNullValidation(this)" oninvalid="notNullValidation(this)">
             <label for="birthday" class="font">Tanggal Lahir</label>
             <input type="date" name="birthday" id="birthday" required oninput="notNullValidation(this)" oninvalid="notNullValidation(this)">            

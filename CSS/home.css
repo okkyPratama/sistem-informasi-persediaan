@@ -75,7 +75,7 @@ h2 > span {
 }
 
 .action .menu.active {
-  top: 80px;
+  top: 60px;
   visibility: visible;
   opacity: 1;
 }
